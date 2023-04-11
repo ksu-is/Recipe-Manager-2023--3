@@ -7,7 +7,7 @@ As someone who enjoys cooking, I often find myself searching through different c
 Getting Started:
 
 Contact:
-The Recipe Manager project is being completed by Denver Wynter and Josh Stinson.
+The Recipe Manager project is being completed by Denver Wynter and Joshua Stinson.
 
 Updates:
 We are planning to build on top of the Recipe_Manager-Calender project
