@@ -6,7 +6,6 @@ conn.execute('''CREATE TABLE IF NOT EXISTS recipes
              COOK_TIME INTEGER NOT NULL,
              DIFFICULTY TEXT NOT NULL);''')
 
-# Function to add a new recipe
 def add_recipe():
     name = input("Enter recipe name: ")
     ingredients = input("Enter ingredients separated by commas: ")
@@ -18,7 +17,7 @@ def add_recipe():
     conn.commit()
     print("Recipe added successfully!")
 
-# Function to search for a recipe
+
 def search_recipe():
     search_term = input("Enter search term: ")
     query = f"SELECT * FROM recipes WHERE NAME LIKE '%{search_term}%' \
@@ -38,3 +37,9 @@ def search_recipe():
             print("Cook Time:", row[4], "minutes")
             print("Difficulty:", row[5])
             print("")
+def modify_recipe():
+    recipe_id = int(input("Enter recipe ID: "))
+    query = f"SELECT * FROM recipes WHERE ID = {recipe_id}"
+    result = conn.execute(query)
+    rows = result.fetchall()
+    if len(rows) == 0:
