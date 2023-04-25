@@ -16,4 +16,25 @@ def add_recipe():
     conn.execute(f"INSERT INTO recipes (NAME, INGREDIENTS, INSTRUCTIONS, COOK_TIME, DIFFICULTY) \
                    VALUES ('{name}', '{ingredients}', '{instructions}', {cook_time}, '{difficulty}');")
     conn.commit()
-    
+    print("Recipe added successfully!")
+
+# Function to search for a recipe
+def search_recipe():
+    search_term = input("Enter search term: ")
+    query = f"SELECT * FROM recipes WHERE NAME LIKE '%{search_term}%' \
+             OR INGREDIENTS LIKE '%{search_term}%' \
+             OR INSTRUCTIONS LIKE '%{search_term}%' \
+             OR DIFFICULTY LIKE '%{search_term}%'"
+    result = conn.execute(query)
+    rows = result.fetchall()
+    if len(rows) == 0:
+        print("No recipes found.")
+    else:
+        for row in rows:
+                    print("ID:", row[0])
+            print("Name:", row[1])
+            print("Ingredients:", row[2])
+            print("Instructions:", row[3])
+            print("Cook Time:", row[4], "minutes")
+            print("Difficulty:", row[5])
+            print("")
