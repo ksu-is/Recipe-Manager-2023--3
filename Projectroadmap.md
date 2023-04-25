@@ -16,4 +16,4 @@ def add_recipe():
     conn.execute(f"INSERT INTO recipes (NAME, INGREDIENTS, INSTRUCTIONS, COOK_TIME, DIFFICULTY) \
                    VALUES ('{name}', '{ingredients}', '{instructions}', {cook_time}, '{difficulty}');")
     conn.commit()
-    print("Recipe added successfully!")
+    
